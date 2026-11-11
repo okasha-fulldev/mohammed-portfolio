@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://okasha-fulldev.github.io/mohammed-portfolio/sitemap.xml
