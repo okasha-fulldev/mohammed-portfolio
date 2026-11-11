@@ -10,9 +10,8 @@ export NEXT_PUBLIC_BASE_PATH="/$REPO_NAME"
 export NEXT_PUBLIC_SITE_URL="https://okasha-fulldev.github.io/$REPO_NAME"
 export NEXT_PUBLIC_FORM_ENDPOINT="https://formsubmit.co/ajax/mohammed.masud460@gmail.com"
 
-HOLD="$(mktemp -d)"
-cp -r src/app/api src/app/sitemap.ts src/app/robots.ts "$HOLD/"
-restore() { cp -r "$HOLD/api" src/app/; cp "$HOLD/sitemap.ts" "$HOLD/robots.ts" src/app/; rm -f public/sitemap.xml public/robots.txt; }
+# put the server-only files back from git when done, even if the build fails
+restore() { git checkout -- src/app/api src/app/sitemap.ts src/app/robots.ts; rm -f public/sitemap.xml public/robots.txt; }
 trap restore EXIT
 
 # server-only routes can't be exported; sitemap/robots become plain files
