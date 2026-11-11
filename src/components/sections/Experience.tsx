@@ -15,7 +15,7 @@ export default function Experience() {
   const grow = useSpring(scrollYProgress, { stiffness: 90, damping: 22 });
 
   return (
-    <section id="experience" className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+    <section id="experience" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24 md:py-32">
       <SectionTitle title={c.experience.title} subtitle={c.experience.subtitle} />
 
       <ol ref={ref} className="relative max-w-3xl space-y-10">

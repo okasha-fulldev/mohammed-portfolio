@@ -43,9 +43,9 @@ const icons: Record<SkillIcon, { Icon: Icon; color: string }> = {
 export default function Skills() {
   const c = useContent();
   return (
-    <section id="skills" className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+    <section id="skills" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24 md:py-32">
       <SectionTitle title={c.skills.title} subtitle={c.skills.subtitle} />
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5">
+      <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-5">
         {skillOrder.map((id, i) => {
           const { Icon, color } = icons[id];
           return (
@@ -55,12 +55,12 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: (i % 5) * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative flex h-32 flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-line bg-navy/55 px-3 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_oklab,var(--c)_45%,transparent)]"
+              className="group relative flex h-24 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-line bg-navy/55 px-1.5 sm:h-32 sm:gap-3 sm:rounded-2xl sm:px-3 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_oklab,var(--c)_45%,transparent)]"
               style={{ "--c": color } as React.CSSProperties}
             >
               <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,color-mix(in_oklab,var(--c)_22%,transparent),transparent_70%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <Icon className="relative h-8 w-8 text-text/85 transition-colors duration-300 group-hover:text-[var(--c)]" />
-              <span className="relative text-sm font-semibold leading-5">{c.skills.names[id]}</span>
+              <Icon className="relative h-6 w-6 text-text/85 sm:h-8 sm:w-8 transition-colors duration-300 group-hover:text-[var(--c)]" />
+              <span className="relative text-[12px] font-semibold leading-4 sm:text-sm sm:leading-5">{c.skills.names[id]}</span>
             </motion.li>
           );
         })}

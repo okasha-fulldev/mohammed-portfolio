@@ -53,6 +53,7 @@
 section[id] { scroll-margin-top: 80px; }
 
 html {
+  overflow-x: clip;       /* nothing decorative may widen the page on phones */
   background: var(--ink);
   color-scheme: dark;
   transition: background-color 0.4s ease;

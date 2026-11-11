@@ -20,8 +20,8 @@ const item: Variants = {
 export default function Hero() {
   const c = useContent();
   return (
-    <section id="home" className="relative">
-      <div className="mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-32 sm:px-8 md:grid-cols-[1.1fr_1fr] md:gap-8 md:pt-24">
+    <section id="home" className="relative overflow-x-clip">
+      <div className="mx-auto grid min-h-[100svh] max-w-6xl items-center gap-10 px-5 pb-20 pt-28 sm:gap-12 sm:px-8 sm:pt-32 md:grid-cols-[1.1fr_1fr] md:gap-8 md:pt-24">
         {/* text — on the reading side (right in Arabic, left in English) */}
         <motion.div variants={container} initial="hidden" animate="show" className="order-2 space-y-6 md:order-1">
           <motion.span
@@ -35,7 +35,7 @@ export default function Hero() {
             {c.hero.badge}
           </motion.span>
 
-          <motion.h1 variants={item} className="text-[42px] font-bold leading-[1.2] text-balance sm:text-6xl lg:text-[68px]">
+          <motion.h1 variants={item} className="text-[34px] min-[380px]:text-[40px] font-bold leading-[1.2] text-balance sm:text-6xl lg:text-[68px]">
             {c.hero.greeting}
             <br />
             <span className="from-gold-soft via-gold to-blue-soft bg-clip-text text-transparent ltr:bg-gradient-to-r rtl:bg-gradient-to-l">

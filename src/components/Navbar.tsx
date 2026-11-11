@@ -24,6 +24,14 @@ export default function Navbar() {
   const [active, setActive] = useState<string>(onContactPage ? "contact" : "home");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // close the phone menu with Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
   const theme = useSyncExternalStore(subscribeTheme, readTheme, () => "dark" as Theme);
 
   function toggleTheme() {

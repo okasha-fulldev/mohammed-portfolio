@@ -13,7 +13,7 @@ export default function Projects() {
   const list = all ? projectOrder : projectOrder.filter((id) => projectMeta[id].featured);
 
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+    <section id="projects" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <SectionTitle title={c.projects.title} subtitle={c.projects.subtitle} />
         <button

@@ -10,7 +10,7 @@ import { contact } from "@/content/shared";
 export default function Contact() {
   const c = useContent();
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+    <section id="contact" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24 md:py-32">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_2fr]">
         <div>
           <SectionTitle title={c.contact.title} />

@@ -15,8 +15,8 @@ const lines: [string, string][] = [
 export default function About() {
   const c = useContent();
   return (
-    <section id="about" className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
-      <div className="grid items-center gap-12 md:grid-cols-2">
+    <section id="about" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24 md:py-32">
+      <div className="grid items-center gap-12 md:grid-cols-2 [&>*]:min-w-0">
         <div>
           <SectionTitle title={c.about.title} />
           <Reveal className="space-y-5 text-lg leading-9 text-text/90">
@@ -51,7 +51,7 @@ export default function About() {
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
               <span className="ml-3 font-en text-xs text-muted">agent.ts</span>
             </div>
-            <pre className="overflow-x-auto px-5 py-5 font-mono text-[13px] leading-7">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-words px-4 py-5 font-mono text-[12px] leading-7 sm:px-5 sm:text-[13px]">
               <code>
                 <span className="text-blue-soft">const</span>
                 <span className="text-text"> agent </span>
@@ -75,11 +75,11 @@ export default function About() {
                 <span className="text-muted">{"});"}</span>
                 {"\n\n"}
                 <span className="text-muted">{"// "}</span>
-                <span className="text-emerald-500">{c.about.codeComment}</span>
+                <span className="whitespace-pre-wrap break-words text-emerald-500">{c.about.codeComment}</span>
               </code>
             </pre>
           </div>
-          <div className="float-slow absolute -right-4 -top-8 grid h-20 w-20 place-items-center rounded-2xl border border-line bg-navy-2/80 shadow-[0_0_40px_-6px_rgba(59,123,255,0.55)] backdrop-blur-md sm:-right-8">
+          <div className="float-slow absolute -right-1 -top-8 grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-2xl border border-line bg-navy-2/80 shadow-[0_0_40px_-6px_rgba(59,123,255,0.55)] backdrop-blur-md sm:-right-8">
             <Code2 className="h-9 w-9 text-blue-soft" />
           </div>
         </Reveal>
