@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { withBase } from "@/content/base-path";
 
 /**
  * The tall night-sky artwork is fixed behind the page and scrubbed from top to
@@ -8,7 +9,7 @@ import { useEffect, useRef } from "react";
  * sky → laptop on the mountain → code & cubes → servers → network.
  */
 export default function ParallaxBackground({
-  src = "/images/bg-sky.webp",
+  src = withBase("/images/bg-sky.webp"),
   ratio = 1.9, // image height / width, updated from the real file on load
 }: {
   src?: string;

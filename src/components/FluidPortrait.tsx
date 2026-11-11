@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { withBase } from "@/content/base-path";
 import type { PointerEvent } from "react";
 
 type Props = {
@@ -17,7 +18,7 @@ type Props = {
  * piece tilts toward the cursor.
  */
 export default function FluidPortrait({
-  src = "/images/me-cutout.webp",
+  src = withBase("/images/me-cutout.webp"),
   alt = "محمد مسعود عكاشة",
   headCut = 38,
   className = "",

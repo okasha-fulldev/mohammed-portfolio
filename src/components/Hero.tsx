@@ -5,6 +5,7 @@ import { Download, Send } from "lucide-react";
 import FluidPortrait from "@/components/FluidPortrait";
 import { activeSocials, socialIcons } from "@/components/socialIcons";
 import { useContent } from "@/components/ContentProvider";
+import { withBase } from "@/content/base-path";
 import { contact } from "@/content/shared";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -49,14 +50,14 @@ export default function Hero() {
 
           <motion.div variants={item} className="flex flex-wrap items-center gap-3 pt-2">
             <a
-              href={c.contactPath}
+              href={withBase(c.contactPath)}
               className="group inline-flex h-12 items-center gap-2 rounded-full border border-text/25 bg-navy/40 px-6 font-semibold backdrop-blur transition-colors hover:border-gold hover:text-gold"
             >
               <Send className="h-4 w-4 transition-transform rtl:-scale-x-100 rtl:group-hover:-translate-x-1 ltr:group-hover:translate-x-1" />
               {c.ui.contactMe}
             </a>
             <a
-              href={contact.cvUrl}
+              href={withBase(contact.cvUrl)}
               download
               className="group relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-full from-gold-soft to-gold px-6 font-semibold text-on-accent shadow-[0_8px_30px_-8px_rgba(231,165,90,0.6)] transition-transform hover:-translate-y-0.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l"
             >

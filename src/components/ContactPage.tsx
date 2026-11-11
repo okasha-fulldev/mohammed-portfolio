@@ -17,6 +17,8 @@ type ServerError = "server" | "notConfigured" | "rate";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const linkedin = socials.find((s) => s.id === "linkedin")?.href;
+/** Set at build time for static hosting; when empty the form uses the site's own /api/contact route. */
+const formEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "";
 
 export default function ContactPage() {
   const c = useContent();
@@ -41,6 +43,36 @@ export default function ContactPage() {
     if (!validate()) return;
     setStatus("sending");
     try {
+      if (formEndpoint) {
+        // static hosting (GitHub Pages): no server of our own, so post to the form-to-email service
+        if (values.website) {
+          setStatus("sent");
+          return;
+        }
+        const res = await fetch(formEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name: values.name.trim(),
+            email: values.email.trim(),
+            topic: values.topic,
+            message: values.message.trim(),
+            _subject: `رسالة من الموقع: ${values.topic} — ${values.name.trim()}`,
+            _replyto: values.email.trim(),
+            _template: "table",
+            _captcha: "false",
+          }),
+        });
+        const data = (await res.json().catch(() => ({}))) as { success?: string | boolean };
+        if (res.ok && String(data.success) === "true") {
+          setStatus("sent");
+          return;
+        }
+        setServerError(res.status === 429 ? "rate" : "server");
+        setStatus("idle");
+        return;
+      }
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

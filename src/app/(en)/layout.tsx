@@ -7,8 +7,8 @@ import "../globals.css";
 export const metadata: Metadata = {
   title: en.meta.title,
   description: en.meta.description,
-  metadataBase: new URL(siteUrl),
-  alternates: { canonical: "/en", languages: { ar: "/" } },
+  metadataBase: new URL(new URL(siteUrl).origin), // Next adds the base path to file images itself
+  alternates: { canonical: `${siteUrl}/en`, languages: { ar: `${siteUrl}/` } },
   openGraph: {
     type: "website",
     locale: "en_US",

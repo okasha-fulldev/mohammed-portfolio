@@ -21,3 +21,11 @@ Messages are sent by email through [Resend](https://resend.com). Copy `.env.exam
 - `src/content/shared.ts` — contact details, social links, skills and projects
 - `src/components/` — sections and UI
 - `src/app/api/contact/route.ts` — contact form email endpoint
+
+## Publish on GitHub Pages
+
+```bash
+npm run deploy:pages
+```
+
+Builds a static copy (served at https://okasha-fulldev.github.io/mohammed-portfolio/) and pushes it to the `gh-pages` branch. On GitHub Pages there is no server, so the contact form sends through [FormSubmit](https://formsubmit.co) instead of `/api/contact` — confirm the activation email FormSubmit sends after the first message.

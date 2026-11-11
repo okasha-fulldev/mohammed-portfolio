@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import Logo from "@/components/Logo";
+import { samePath, withBase } from "@/content/base-path";
 import { useContent } from "@/components/ContentProvider";
 
 type Theme = "dark" | "light";
@@ -20,7 +21,7 @@ const readTheme = (): Theme => (document.documentElement.dataset.theme === "ligh
 export default function Navbar() {
   const c = useContent();
   const pathname = usePathname();
-  const onContactPage = pathname === c.contactPath;
+  const onContactPage = samePath(pathname, c.contactPath);
   const [active, setActive] = useState<string>(onContactPage ? "contact" : "home");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -70,10 +71,10 @@ export default function Navbar() {
   }, [open]);
 
   const hrefFor = (id: string) => {
-    if (id === "contact") return c.contactPath;
-    return onContactPage ? `${c.home}#${id}` : `#${id}`;
+    if (id === "contact") return withBase(c.contactPath);
+    return onContactPage ? withBase(`${c.home}#${id}`) : `#${id}`;
   };
-  const otherLang = onContactPage ? c.other.contact : c.other.home;
+  const otherLang = withBase(onContactPage ? c.other.contact : c.other.home);
 
   return (
     <>
@@ -86,7 +87,7 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8">
-          <a href={onContactPage ? c.home : "#home"} aria-label={c.ui.home} className="shrink-0">
+          <a href={onContactPage ? withBase(c.home) : "#home"} aria-label={c.ui.home} className="shrink-0">
             <Logo className="h-9 w-auto" />
           </a>
 
