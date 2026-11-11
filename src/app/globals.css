@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* ===== Design tokens — palette taken from the night-sky background (navy + gold + electric blue) ===== */
+:root {
+  --ink: #05080f;        /* deepest background */
+  --navy: #0b1324;       /* surfaces */
+  --navy-2: #121c33;     /* raised surfaces */
+  --line: rgba(160, 180, 220, 0.14);
+  --text: #e9edf6;
+  --muted: #95a1b9;
+  --gold: #e7a55a;       /* warm accent, from the light streaks */
+  --gold-soft: #f3c98d;
+  --blue: #3b7bff;       /* cool accent, from the code glyph & servers */
+  --blue-soft: #7aa8ff;
+  --on-accent: #120c04;  /* text on gold buttons — dark in both themes */
+  --veil: 0;             /* how much the page colour covers the background art */
+  --shadow: rgba(0, 0, 0, 0.8);
+}
+
+/* Light theme: pale "dawn" version of the same palette; the night art is veiled, not removed */
+:root[data-theme="light"] {
+  --ink: #eef1f7;
+  --navy: #ffffff;
+  --navy-2: #f4f6fb;
+  --line: rgba(20, 34, 66, 0.12);
+  --text: #0d1730;
+  --muted: #55627c;
+  --gold: #b8742c;
+  --gold-soft: #d79a52;
+  --blue: #2457d6;
+  --blue-soft: #2f63e0;
+  --veil: 0.86;
+  --shadow: rgba(20, 34, 66, 0.25);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-on-accent: var(--on-accent);
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-blue: var(--blue);
+  --color-blue-soft: var(--blue-soft);
+  --font-sans: var(--font-arabic), var(--font-latin), system-ui, sans-serif;
+  --font-en: var(--font-latin), system-ui, sans-serif;
+}
+
+section[id] { scroll-margin-top: 80px; }
+
+html {
+  background: var(--ink);
+  color-scheme: dark;
+  transition: background-color 0.4s ease;
+}
+:root[data-theme="light"] { color-scheme: light; }
+
+/* English pages: Latin face first so Inter is used for English text */
+body.font-en-first {
+  font-family: var(--font-latin), var(--font-arabic), system-ui, sans-serif;
+}
+
+/* html carries the base colour; body stays transparent so the fixed -z background layer shows through */
+body {
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-arabic), var(--font-latin), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--gold) 40%, transparent);
+  color: #fff;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ===== Fluid photo frame ===== */
+@property --spin {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes blob-morph {
+  0%   { border-radius: 58% 42% 46% 54% / 52% 44% 56% 48%; }
+  25%  { border-radius: 44% 56% 60% 40% / 58% 52% 48% 42%; }
+  50%  { border-radius: 52% 48% 38% 62% / 44% 60% 40% 56%; }
+  75%  { border-radius: 62% 38% 54% 46% / 50% 40% 60% 50%; }
+  100% { border-radius: 58% 42% 46% 54% / 52% 44% 56% 48%; }
+}
+
+@keyframes ring-spin {
+  to { --spin: 360deg; }
+}
+
+.blob {
+  border-radius: 58% 42% 46% 54% / 52% 44% 56% 48%;
+  animation: blob-morph 14s ease-in-out infinite;
+}
+
+.blob-ring {
+  background: conic-gradient(
+    from var(--spin),
+    var(--gold) 0deg,
+    var(--gold-soft) 60deg,
+    transparent 120deg,
+    var(--blue) 200deg,
+    var(--blue-soft) 260deg,
+    transparent 320deg,
+    var(--gold) 360deg
+  );
+  animation: blob-morph 14s ease-in-out infinite, ring-spin 9s linear infinite;
+}
+
+/* thin ring: keep only the border area of the gradient */
+.blob-ring--thin {
+  padding: 2px;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-slow { animation: float-y 7s ease-in-out infinite; }
+
+/* blend the daylight photo into the night palette */
+.portrait-tone {
+  filter: contrast(1.06) saturate(0.88) brightness(0.96)
+    drop-shadow(0 18px 30px rgba(0, 0, 0, 0.55));
+}
+/* same grade without shadow, for the clipped head layer (a clipped shadow leaves a hard edge) */
+.portrait-tone--flat {
+  filter: contrast(1.06) saturate(0.88) brightness(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob, .blob-ring, .float-slow { animation: none; }
+}
