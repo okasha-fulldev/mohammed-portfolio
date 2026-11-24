@@ -136,6 +136,19 @@ html.lenis, html.lenis body { height: auto; }
 
 .float-slow { animation: float-y 7s ease-in-out infinite; }
 
+/* hero orbit icons: drift in and out a little while orbiting */
+@keyframes orbit-drift {
+  0%, 100% { transform: translate(0, 0); }
+  30%      { transform: translate(6px, -9px); }
+  65%      { transform: translate(-7px, 5px); }
+}
+
+/* hero logo: slow breathing glow */
+@keyframes logo-glow {
+  0%, 100% { filter: drop-shadow(0 0 14px rgba(231,165,90,.45)); transform: scale(1); }
+  50%      { filter: drop-shadow(0 0 28px rgba(231,165,90,.8));  transform: scale(1.04); }
+}
+
 /* blend the daylight photo into the night palette */
 .portrait-tone {
   filter: contrast(1.06) saturate(0.88) brightness(0.96)

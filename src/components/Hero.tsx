@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { Download, Send } from "lucide-react";
-import FluidPortrait from "@/components/FluidPortrait";
+import TechOrbit from "@/components/TechOrbit";
 import { activeSocials, socialIcons } from "@/components/socialIcons";
 import { useContent } from "@/components/ContentProvider";
 import { withBase } from "@/content/base-path";
@@ -88,7 +88,7 @@ export default function Hero() {
         </motion.div>
 
         <div className="order-1 flex justify-center md:order-2">
-          <FluidPortrait className="float-slow" alt={c.hero.fullName} />
+          <TechOrbit className="float-slow" label={`${c.hero.fullName} — ${c.hero.badge}`} />
         </div>
       </div>
 
