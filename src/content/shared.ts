@@ -43,15 +43,28 @@ export type ProjectId =
   | "haramain" | "awnak" | "ghaith" | "superqudrat" | "shahadati"
   | "matarati" | "hajjgis" | "uloom" | "zumala";
 
-export const projectMeta: Record<ProjectId, { tags: string[]; featured?: boolean; hue: [string, string] }> = {
-  haramain: { tags: ["Laravel", "Supabase"], featured: true, hue: ["#e7a55a", "#3b2a14"] },
-  awnak: { tags: ["AI Agent", "OpenAI", "n8n"], featured: true, hue: ["#3b7bff", "#0e1e44"] },
-  uloom: { tags: ["Laravel", "React"], hue: ["#7aa8ff", "#16224a"] },
-  shahadati: { tags: ["Laravel", "Email"], featured: true, hue: ["#f3c98d", "#2c2113"] },
-  ghaith: { tags: ["E-commerce"], featured: true, hue: ["#3ecf8e", "#0f2a22"] },
-  superqudrat: { tags: ["E-learning"], featured: true, hue: ["#c08bff", "#22163a"] },
+/**
+ * url: the live site (shows a "Live site" button); repo: a public GitHub repo (shows a "Code" button);
+ * image: a screenshot in /public/projects/ shown instead of the drawn screen. Leave any of them out to hide it.
+ */
+export type ProjectMeta = {
+  tags: string[];
+  featured?: boolean;
+  hue: [string, string];
+  url?: string;
+  repo?: string;
+  image?: string;
+};
+
+export const projectMeta: Record<ProjectId, ProjectMeta> = {
+  haramain: { tags: ["E-learning", "Laravel", "Supabase"], featured: true, hue: ["#e7a55a", "#3b2a14"], url: "https://qimamalharamain.com/", image: "/projects/haramain.jpg" },
+  awnak: { tags: ["AI Bot", "WhatsApp", "Telegram", "n8n"], featured: true, hue: ["#3b7bff", "#0e1e44"] },
+  uloom: { tags: ["Laravel", "React"], hue: ["#7aa8ff", "#16224a"], url: "https://qimam.academy/", image: "/projects/uloom.jpg" },
+  shahadati: { tags: ["Laravel", "Email"], featured: true, hue: ["#f3c98d", "#2c2113"], repo: "https://github.com/okasha-fulldev/shahadati" },
+  ghaith: { tags: ["E-commerce"], featured: true, hue: ["#3ecf8e", "#0f2a22"], url: "https://thestore-8qa.pages.dev/" },
+  superqudrat: { tags: ["E-learning"], featured: true, hue: ["#c08bff", "#22163a"], url: "https://superqodrat.com/", image: "/projects/superqudrat.jpg" },
   hajjgis: { tags: ["GIS", "GPS"], hue: ["#4aa3ff", "#0d2236"] },
-  zumala: { tags: ["Laravel", "Blade"], hue: ["#8fb3ff", "#141c33"] },
+  zumala: { tags: ["E-learning", "Community"], hue: ["#8fb3ff", "#141c33"], url: "https://zomala.net/", image: "/projects/zumala.jpg" },
   matarati: { tags: ["React", "Supabase"], featured: true, hue: ["#e7a55a", "#1b1a2e"] },
 };
 

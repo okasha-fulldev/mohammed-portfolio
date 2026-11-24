@@ -45,6 +45,8 @@ export const en: Content = {
     tagline: "Building a better future, together",
     rights: "All rights reserved",
     home: "Home",
+    liveSite: "Live site",
+    sourceCode: "Code",
   },
 
   hero: {
@@ -90,13 +92,13 @@ export const en: Content = {
     subtitle: "Some I built myself, others I helped build as part of a team.",
     inProgress: "In development",
     items: {
-      haramain: { name: "Qimam Al-Haramain", kind: "Government system", description: "A system for the General Presidency for the Affairs of the Grand Mosque." },
-      awnak: { name: "Awnak", kind: "Platform + chatbot", description: "A platform with a chatbot powered by an AI agent." },
+      haramain: { name: "Qimam Al-Haramain — Belisan Mubeen", kind: "Government training platform", description: "A language-training platform for staff of the General Authority for the Care of the Two Holy Mosques, with interactive text, audio and video exercises." },
+      awnak: { name: "Awnak", kind: "AI bot — WhatsApp & Telegram", description: "A system we built that answers people automatically on WhatsApp and Telegram, through an AI bot we trained to understand and answer their questions.", inProgress: true },
       uloom: { name: "Qimam Al-Uloom", kind: "LMS platform", description: "A complete learning platform for an English-language institute." },
       shahadati: { name: "Shahadati", kind: "Graduation project", description: "Generates certificates for educational institutions and emails them automatically." },
-      zumala: { name: "Zumala / Al-Tamkeen", kind: "Admin systems", description: "Internal administrative systems built for the company." },
+      zumala: { name: "Zumala", kind: "Community learning platform", description: "A learning platform that connects peers to share knowledge and ask for help, inside a safe, organized community." },
       matarati: { name: "Matarati", kind: "Fleet management app", description: "An app for managing a fleet: vehicles, trips and day-to-day operations.", inProgress: true },
-      ghaith: { name: "Ghaith Store", kind: "Online store", description: "A complete online store for showcasing products and receiving and managing orders." },
+      ghaith: { name: "Ghaith Store", kind: "Online store", description: "A complete online store specializing in filters, for showcasing products and receiving and managing orders.", inProgress: true },
       superqudrat: { name: "Super Qudrat", kind: "Learning platform", description: "A platform that prepares students for the Qudrat aptitude test with practice and interactive tests." },
       hajjgis: { name: "Hajj Route Mapping", kind: "GIS system", description: "Splitting and organizing GPS data for Hajj sites: points with points, routes with routes, and areas with areas." },
     },
@@ -113,7 +115,7 @@ export const en: Content = {
         icon: "code",
         points: [
           "Built a management system for live training sessions.",
-          "Built the AI agent powering the chatbot of the Awnak platform.",
+          "Built Awnak: an AI bot that answers people automatically on WhatsApp and Telegram.",
           "Built an AI pronunciation trainer that analyzes trainees' English, Urdu and Turkish recordings and scores their accuracy.",
           "Helped obtain the e-learning license from the National eLearning Center (NELC).",
           "Managed the company's store on the Noon marketplace: products, orders and stock.",

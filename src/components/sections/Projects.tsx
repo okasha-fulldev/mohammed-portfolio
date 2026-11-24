@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
+import { withBase } from "@/content/base-path";
 import { SectionTitle } from "@/components/ui";
 import { useContent } from "@/components/ContentProvider";
 import { projectMeta, projectOrder, type ProjectId } from "@/content/shared";
@@ -53,12 +55,21 @@ export default function Projects() {
 function ProjectCard({ id }: { id: ProjectId }) {
   const c = useContent();
   const p = c.projects.items[id];
-  const { tags, hue } = projectMeta[id];
+  const { tags, hue, url, repo, image } = projectMeta[id];
   const [a, b] = hue;
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-navy/55 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_30px_60px_-30px_rgba(59,123,255,0.45)]">
-      {/* artwork: a device screen tinted per project (swap for a real screenshot later) */}
+      {/* artwork: the real screenshot when there is one, otherwise a device screen tinted per project */}
       <div className="relative h-44 overflow-hidden" style={{ background: `radial-gradient(circle at 30% 20%, ${a}33, transparent 60%), linear-gradient(160deg, ${b}, #070b16)` }}>
+        {image ? (
+          // eslint-disable-next-line @next/next/no-img-element -- static export: no image optimizer
+          <img
+            src={withBase(image)}
+            alt={p.name}
+            loading="lazy"
+            className="absolute inset-x-6 bottom-0 top-6 w-[calc(100%-3rem)] rounded-t-xl border border-white/10 object-cover object-top shadow-2xl transition-transform duration-700 group-hover:-translate-y-2"
+          />
+        ) : (
         <div className="absolute inset-x-8 bottom-0 top-7 rounded-t-xl border border-white/10 bg-[#05080f]/80 p-3 shadow-2xl transition-transform duration-700 group-hover:-translate-y-2" dir="ltr">
           <div className="mb-3 flex gap-1">
             <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
@@ -82,6 +93,7 @@ function ProjectCard({ id }: { id: ProjectId }) {
             </div>
           </div>
         </div>
+        )}
         {p.inProgress && (
           <span className="absolute end-3 top-3 rounded-full bg-gold px-2.5 py-0.5 text-xs font-semibold text-on-accent">
             {c.projects.inProgress}
@@ -100,6 +112,32 @@ function ProjectCard({ id }: { id: ProjectId }) {
             </li>
           ))}
         </ul>
+        {(url || repo) && (
+          <div className="mt-3 flex flex-wrap gap-2 border-t border-line pt-4">
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 items-center gap-1.5 rounded-full from-gold-soft to-gold px-4 text-sm font-semibold text-on-accent transition-transform hover:-translate-y-0.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l"
+              >
+                <ExternalLink className="h-4 w-4" />
+                {c.ui.liveSite}
+              </a>
+            )}
+            {repo && (
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 items-center gap-1.5 rounded-full border border-text/25 px-4 text-sm font-semibold transition-colors hover:border-gold hover:text-gold"
+              >
+                <FaGithub className="h-4 w-4" />
+                {c.ui.sourceCode}
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );
