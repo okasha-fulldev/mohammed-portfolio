@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaWhatsapp } from "react-icons/fa6";
 import { withBase } from "@/content/base-path";
 import { SectionTitle } from "@/components/ui";
 import { useContent } from "@/components/ContentProvider";
@@ -55,7 +55,7 @@ export default function Projects() {
 function ProjectCard({ id }: { id: ProjectId }) {
   const c = useContent();
   const p = c.projects.items[id];
-  const { tags, hue, url, repo, image } = projectMeta[id];
+  const { tags, hue, url, repo, image, whatsapp } = projectMeta[id];
   const [a, b] = hue;
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-navy/55 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_30px_60px_-30px_rgba(59,123,255,0.45)]">
@@ -112,7 +112,7 @@ function ProjectCard({ id }: { id: ProjectId }) {
             </li>
           ))}
         </ul>
-        {(url || repo) && (
+        {(url || repo || whatsapp) && (
           <div className="mt-3 flex flex-wrap gap-2 border-t border-line pt-4">
             {url && (
               <a
@@ -123,6 +123,17 @@ function ProjectCard({ id }: { id: ProjectId }) {
               >
                 <ExternalLink className="h-4 w-4" />
                 {c.ui.liveSite}
+              </a>
+            )}
+            {whatsapp && (
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 items-center gap-1.5 rounded-full bg-emerald-600 px-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              >
+                <FaWhatsapp className="h-4 w-4" />
+                {c.ui.tryBot}
               </a>
             )}
             {repo && (

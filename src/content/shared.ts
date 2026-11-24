@@ -45,6 +45,7 @@ export type ProjectId =
 
 /**
  * url: the live site (shows a "Live site" button); repo: a public GitHub repo (shows a "Code" button);
+ * whatsapp: wa.me link for a bot people can try;
  * image: a screenshot in /public/projects/ shown instead of the drawn screen. Leave any of them out to hide it.
  */
 export type ProjectMeta = {
@@ -53,12 +54,14 @@ export type ProjectMeta = {
   hue: [string, string];
   url?: string;
   repo?: string;
+  /** a WhatsApp chat link to try a bot (shows a "Try it on WhatsApp" button) */
+  whatsapp?: string;
   image?: string;
 };
 
 export const projectMeta: Record<ProjectId, ProjectMeta> = {
   haramain: { tags: ["E-learning", "Laravel", "Supabase"], featured: true, hue: ["#e7a55a", "#3b2a14"], url: "https://qimamalharamain.com/", image: "/projects/haramain.jpg" },
-  awnak: { tags: ["AI Bot", "WhatsApp", "Telegram", "n8n"], featured: true, hue: ["#3b7bff", "#0e1e44"] },
+  awnak: { tags: ["AI Bot", "WhatsApp", "Telegram", "n8n"], featured: true, hue: ["#3b7bff", "#0e1e44"], whatsapp: "https://wa.me/966556215960" },
   uloom: { tags: ["Laravel", "React"], hue: ["#7aa8ff", "#16224a"], url: "https://qimam.academy/", image: "/projects/uloom.jpg" },
   shahadati: { tags: ["Laravel", "Email"], featured: true, hue: ["#f3c98d", "#2c2113"], repo: "https://github.com/okasha-fulldev/shahadati" },
   ghaith: { tags: ["E-commerce"], featured: true, hue: ["#3ecf8e", "#0f2a22"], url: "https://thestore-8qa.pages.dev/" },

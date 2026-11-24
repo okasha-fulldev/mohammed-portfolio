@@ -47,6 +47,7 @@ export const en: Content = {
     home: "Home",
     liveSite: "Live site",
     sourceCode: "Code",
+    tryBot: "Try the bot on WhatsApp",
   },
 
   hero: {

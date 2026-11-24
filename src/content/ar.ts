@@ -49,6 +49,7 @@ export const ar = {
     home: "الرئيسية",
     liveSite: "زيارة الموقع",
     sourceCode: "الكود",
+    tryBot: "جرّب البوت على واتساب",
   },
 
   hero: {
