@@ -25,25 +25,36 @@ export type SkillIcon =
   | "react" | "laravel" | "php" | "javascript" | "supabase"
   | "openai" | "gemini" | "n8n" | "api" | "python"
   | "agents" | "mcp" | "prompt" | "blade" | "otp"
-  | "daftra" | "noon" | "video" | "excel" | "office";
+  | "daftra" | "noon" | "video" | "excel" | "office" | "gis";
 
-/** order of the skill cards; names come from each language file */
-export const skillOrder: SkillIcon[] = [
-  "react", "laravel", "php", "javascript", "supabase",
-  "openai", "gemini", "n8n", "api", "python",
-  "agents", "mcp", "prompt", "blade", "otp",
-  "daftra", "noon", "video", "excel", "office",
+export type SkillGroupId = "web" | "ai" | "integrations" | "tools";
+
+/** skill cards grouped by area; names come from each language file */
+export const skillGroups: { id: SkillGroupId; items: SkillIcon[] }[] = [
+  { id: "web", items: ["laravel", "php", "blade", "react", "javascript", "supabase", "api", "python"] },
+  { id: "ai", items: ["agents", "openai", "gemini", "n8n", "mcp", "prompt", "video"] },
+  { id: "integrations", items: ["noon", "daftra", "otp", "gis"] },
+  { id: "tools", items: ["excel", "office"] },
 ];
 
-export type ProjectId = "haramain" | "awnak" | "uloom" | "shahadati" | "zumala" | "matarati";
+export const skillOrder: SkillIcon[] = skillGroups.flatMap((g) => g.items);
+
+export type ProjectId =
+  | "haramain" | "awnak" | "ghaith" | "superqudrat" | "shahadati"
+  | "matarati" | "hajjgis" | "uloom" | "zumala";
 
 export const projectMeta: Record<ProjectId, { tags: string[]; featured?: boolean; hue: [string, string] }> = {
   haramain: { tags: ["Laravel", "Supabase"], featured: true, hue: ["#e7a55a", "#3b2a14"] },
   awnak: { tags: ["AI Agent", "OpenAI", "n8n"], featured: true, hue: ["#3b7bff", "#0e1e44"] },
-  uloom: { tags: ["Laravel", "React"], featured: true, hue: ["#7aa8ff", "#16224a"] },
-  shahadati: { tags: ["Laravel", "Email"], hue: ["#f3c98d", "#2c2113"] },
+  uloom: { tags: ["Laravel", "React"], hue: ["#7aa8ff", "#16224a"] },
+  shahadati: { tags: ["Laravel", "Email"], featured: true, hue: ["#f3c98d", "#2c2113"] },
+  ghaith: { tags: ["E-commerce"], featured: true, hue: ["#3ecf8e", "#0f2a22"] },
+  superqudrat: { tags: ["E-learning"], featured: true, hue: ["#c08bff", "#22163a"] },
+  hajjgis: { tags: ["GIS", "GPS"], hue: ["#4aa3ff", "#0d2236"] },
   zumala: { tags: ["Laravel", "Blade"], hue: ["#8fb3ff", "#141c33"] },
-  matarati: { tags: ["React", "Supabase"], hue: ["#e7a55a", "#1b1a2e"] },
+  matarati: { tags: ["React", "Supabase"], featured: true, hue: ["#e7a55a", "#1b1a2e"] },
 };
 
-export const projectOrder: ProjectId[] = ["haramain", "awnak", "uloom", "shahadati", "zumala", "matarati"];
+export const projectOrder: ProjectId[] = [
+  "haramain", "awnak", "ghaith", "superqudrat", "shahadati", "matarati", "hajjgis", "uloom", "zumala",
+];

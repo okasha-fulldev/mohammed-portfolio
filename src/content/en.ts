@@ -10,7 +10,7 @@ export const en: Content = {
   meta: {
     title: "Mohammed Masoud Okasha | Software Developer & AI Solutions Engineer",
     description:
-      "Software developer from Makkah building full web systems and AI agents with Laravel, React, Supabase and n8n.",
+      "Software developer and AI solutions engineer who designs smart, AI-driven solutions and complete web systems that turn ideas into real results.",
     contactTitle: "Contact | Mohammed Masoud Okasha",
   },
 
@@ -53,34 +53,41 @@ export const en: Content = {
     badge: "Software Developer",
     greeting: "Hi, I'm",
     subtitle:
-      "Software developer and AI solutions engineer from Makkah. I build complete web systems and AI agents that make a real difference.",
+      "Software developer and AI solutions engineer. I turn ideas and real-world challenges into smart, AI-driven solutions that save time and make work more efficient.",
   },
 
   about: {
     title: "About me",
     paragraphs: [
-      "I'm Mohammed Masoud Okasha, a software developer and AI solutions engineer based in Makkah. I build full web systems with Laravel, React and Supabase, and I design AI agents and workflow automation with n8n, OpenAI and Gemini.",
-      "I've delivered real production systems including chatbots, learning platforms and AI-powered voice analysis, and I have experience leading teams and managing projects.",
+      "I'm Mohammed Masoud Okasha, a software developer and AI solutions engineer. I look for the real problem behind every idea, then create a smart solution for it, putting AI and workflow automation to work inside complete web systems built with Laravel, React, Supabase and n8n, integrated with OpenAI and Gemini.",
+      "I've worked across a wide range of projects, from government systems and learning platforms to e-commerce, fleet management and geographic mapping; from chatbots and AI pronunciation analysis to the Ghaith online store and running a store on the Noon marketplace. Beyond development, I bring field experience in running operations, organizing data and working with teams.",
     ],
-    facts: ["Makkah, Saudi Arabia", "Arabic (native) · English B1", "Technical Diploma — Hermes Institute"],
+    facts: ["AI solutions · Web systems", "Arabic (native) · English B1", "Technical Diploma — Hermes Institute"],
     codeComment: "an agent that understands Arabic and serves users around the clock",
   },
 
   skills: {
     title: "Skills",
     subtitle: "The tools and technologies I work with",
+    groups: {
+      web: "Web development",
+      ai: "AI & automation",
+      integrations: "Integrations & e-commerce",
+      tools: "Tools & productivity",
+    },
     names: {
       react: "React", laravel: "Laravel", php: "PHP", javascript: "JavaScript", supabase: "Supabase",
       openai: "OpenAI", gemini: "Gemini", n8n: "n8n", api: "REST APIs", python: "Python",
       agents: "AI Agents", mcp: "MCP Protocol", prompt: "Prompt Engineering", blade: "Blade",
       otp: "OTP Gateways (Authentica)", daftra: "Daftra Integration", noon: "Noon Integration",
       video: "AI Video Generation", excel: "Advanced Excel", office: "Microsoft Office",
+      gis: "Maps & GIS / GPS",
     },
   },
 
   projects: {
-    title: "Projects",
-    subtitle: "Some of the work I'm proud of",
+    title: "Projects & Work",
+    subtitle: "Some I built myself, others I helped build as part of a team.",
     inProgress: "In development",
     items: {
       haramain: { name: "Qimam Al-Haramain", kind: "Government system", description: "A system for the General Presidency for the Affairs of the Grand Mosque." },
@@ -88,7 +95,10 @@ export const en: Content = {
       uloom: { name: "Qimam Al-Uloom", kind: "LMS platform", description: "A complete learning platform for an English-language institute." },
       shahadati: { name: "Shahadati", kind: "Graduation project", description: "Generates certificates for educational institutions and emails them automatically." },
       zumala: { name: "Zumala / Al-Tamkeen", kind: "Admin systems", description: "Internal administrative systems built for the company." },
-      matarati: { name: "Matarati", kind: "Operations tracking", description: "An operations tracking and management system.", inProgress: true },
+      matarati: { name: "Matarati", kind: "Fleet management app", description: "An app for managing a fleet: vehicles, trips and day-to-day operations.", inProgress: true },
+      ghaith: { name: "Ghaith Store", kind: "Online store", description: "A complete online store for showcasing products and receiving and managing orders." },
+      superqudrat: { name: "Super Qudrat", kind: "Learning platform", description: "A platform that prepares students for the Qudrat aptitude test with practice and interactive tests." },
+      hajjgis: { name: "Hajj Route Mapping", kind: "GIS system", description: "Splitting and organizing GPS data for Hajj sites: points with points, routes with routes, and areas with areas." },
     },
   },
 
@@ -104,18 +114,20 @@ export const en: Content = {
         points: [
           "Built a management system for live training sessions.",
           "Built the AI agent powering the chatbot of the Awnak platform.",
-          "Built an AI pronunciation trainer that analyzes trainees' English and Urdu recordings and scores their accuracy.",
+          "Built an AI pronunciation trainer that analyzes trainees' English, Urdu and Turkish recordings and scores their accuracy.",
           "Helped obtain the e-learning license from the National eLearning Center (NELC).",
-          "Integrated invoicing with Daftra via API, and managed products and integration with the Noon marketplace.",
+          "Managed the company's store on the Noon marketplace: products, orders and stock.",
+          "Integrated invoicing with Daftra via API.",
         ],
       },
       {
-        role: "Supervisor",
-        org: "Hajj Pilgrims Services",
+        role: "Operations Supervisor",
+        org: "Charity — Hajj seasons",
         period: "~4 consecutive Hajj seasons",
         icon: "users",
         points: [
-          "Supervisor at a charity during Hajj seasons, running distribution operations for pilgrims.",
+          "Ran the charity's field operations during Hajj seasons, supervising how services were organized and distributed to pilgrims.",
+          "Collected and organized data from the field and handed it to the technical team, giving them a clear, accurate picture for decisions.",
           "Worked in field teams under high pressure.",
         ],
       },
@@ -130,8 +142,8 @@ export const en: Content = {
   },
 
   stats: [
-    { value: 6, prefix: "+", label: "Production projects" },
-    { value: 20, prefix: "", label: "Tools & technologies" },
+    { value: 9, prefix: "+", label: "Projects & work" },
+    { value: 21, prefix: "", label: "Tools & technologies" },
     { value: 4, prefix: "", label: "Hajj seasons serving pilgrims" },
     { value: null, text: "NELC", label: "Helped obtain the e-learning license" },
   ],

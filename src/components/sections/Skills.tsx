@@ -8,11 +8,12 @@ import {
 import { RiOpenaiFill } from "react-icons/ri";
 import { TbApi } from "react-icons/tb";
 import {
-  Bot, Braces, Clapperboard, FileSpreadsheet, KeyRound, LayoutGrid, Plug, Receipt, ShoppingBag, Sparkles,
+  Blocks, Bot, Braces, BrainCircuit, Clapperboard, Code2, FileSpreadsheet, KeyRound, LayoutGrid, MapPinned, Plug,
+  Receipt, ShoppingBag, Sparkles, Wrench,
 } from "lucide-react";
 import { SectionTitle } from "@/components/ui";
 import { useContent } from "@/components/ContentProvider";
-import { skillOrder, type SkillIcon } from "@/content/shared";
+import { skillGroups, type SkillGroupId, type SkillIcon } from "@/content/shared";
 
 type Icon = ComponentType<{ className?: string }>;
 
@@ -38,33 +39,52 @@ const icons: Record<SkillIcon, { Icon: Icon; color: string }> = {
   video: { Icon: Clapperboard, color: "#ff5c8a" },
   excel: { Icon: FileSpreadsheet, color: "#21a366" },
   office: { Icon: LayoutGrid, color: "#ea3e23" },
+  gis: { Icon: MapPinned, color: "#4aa3ff" },
 };
+
+const groupIcons: Record<SkillGroupId, Icon> = { web: Code2, ai: BrainCircuit, integrations: Blocks, tools: Wrench };
 
 export default function Skills() {
   const c = useContent();
   return (
     <section id="skills" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24 md:py-32">
       <SectionTitle title={c.skills.title} subtitle={c.skills.subtitle} />
-      <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-5">
-        {skillOrder.map((id, i) => {
-          const { Icon, color } = icons[id];
+      <div className="space-y-10 sm:space-y-12">
+        {skillGroups.map((g) => {
+          const GroupIcon = groupIcons[g.id];
           return (
-            <motion.li
-              key={id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: (i % 5) * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative flex h-24 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-line bg-navy/55 px-1.5 sm:h-32 sm:gap-3 sm:rounded-2xl sm:px-3 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_oklab,var(--c)_45%,transparent)]"
-              style={{ "--c": color } as React.CSSProperties}
-            >
-              <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,color-mix(in_oklab,var(--c)_22%,transparent),transparent_70%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <Icon className="relative h-6 w-6 text-text/85 sm:h-8 sm:w-8 transition-colors duration-300 group-hover:text-[var(--c)]" />
-              <span className="relative text-[12px] font-semibold leading-4 sm:text-sm sm:leading-5">{c.skills.names[id]}</span>
-            </motion.li>
+            <div key={g.id}>
+              <h3 className="mb-4 flex items-center gap-2.5 text-base font-bold sm:text-lg">
+                <span className="grid h-8 w-8 place-items-center rounded-lg border border-gold/30 bg-gold/10">
+                  <GroupIcon className="h-4 w-4 text-gold" />
+                </span>
+                {c.skills.groups[g.id]}
+                <span className="font-en text-sm font-medium text-muted">({g.items.length})</span>
+              </h3>
+              <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-5">
+                {g.items.map((id, i) => {
+                  const { Icon, color } = icons[id];
+                  return (
+                    <motion.li
+                      key={id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ duration: 0.6, delay: (i % 5) * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                      className="group relative flex h-24 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-line bg-navy/55 px-1.5 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_oklab,var(--c)_45%,transparent)] sm:h-32 sm:gap-3 sm:rounded-2xl sm:px-3"
+                      style={{ "--c": color } as React.CSSProperties}
+                    >
+                      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,color-mix(in_oklab,var(--c)_22%,transparent),transparent_70%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <Icon className="relative h-6 w-6 text-text/85 transition-colors duration-300 group-hover:text-[var(--c)] sm:h-8 sm:w-8" />
+                      <span className="relative text-[12px] font-semibold leading-4 sm:text-sm sm:leading-5">{c.skills.names[id]}</span>
+                    </motion.li>
+                  );
+                })}
+              </ul>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </section>
   );
 }
