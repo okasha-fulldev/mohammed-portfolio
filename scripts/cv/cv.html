@@ -1,0 +1,294 @@
+<!doctype html>
+<!--
+  Source of public/cv/Mohammed_Masoud_CV.pdf (page 1 Arabic, page 2 English).
+  Edit the text here, then run: npm run cv
+-->
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Mohammed Masoud Okasha — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --navy: #0b1324; --navy-2: #16213b; --ink: #1a2233; --muted: #5b6476; --line: #e3e7ef;
+    --gold: #b8742c; --gold-l: #e7a55a; --gold-xl: #f3c98d; --side: #f6f7fb; --blue: #2457d6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "IBM Plex Sans Arabic", "Inter", sans-serif; font-size: 8.9pt; line-height: 1.5; }
+  .en, .en * { font-family: "Inter", "IBM Plex Sans Arabic", sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+  .page { width: 210mm; height: 297mm; overflow: hidden; position: relative; display: flex; flex-direction: column; break-after: page; }
+  .page:last-child { break-after: auto; }
+
+  /* header band */
+  header { background: var(--navy); color: #e9edf6; padding: 7.5mm 12mm 6.5mm; position: relative; overflow: hidden; }
+  header::after { content: ""; position: absolute; inset: auto 0 0 0; height: 1.2mm; background: linear-gradient(90deg, var(--gold-xl), var(--gold-l), var(--gold)); }
+  header .glow { position: absolute; width: 90mm; height: 90mm; border-radius: 50%; background: radial-gradient(circle, rgba(59,123,255,.28), transparent 65%); top: -45mm; }
+  .ar header .glow { left: -20mm; } .en header .glow { right: -20mm; }
+  .head { display: flex; align-items: center; gap: 6mm; position: relative; }
+  .mono { width: 19mm; height: 19mm; border-radius: 50%; flex: none; display: grid; place-items: center;
+          background: radial-gradient(circle at 50% 35%, #1b2a4a, #070b16); border: .5mm solid rgba(231,165,90,.6); }
+  .mono svg { width: 11.5mm; }
+  h1 { font-size: 22pt; line-height: 1.2; font-weight: 700; color: #fff; }
+  .en h1 { font-size: 21pt; font-weight: 800; letter-spacing: -.01em; }
+  .title { color: var(--gold-xl); font-size: 11pt; font-weight: 500; margin-top: .6mm; }
+  .contacts { display: flex; flex-wrap: wrap; gap: 1.6mm 5.5mm; margin-top: 3.6mm; position: relative; font-size: 8.4pt; color: #c9d1e2; }
+  .contacts a { display: inline-flex; align-items: center; gap: 1.6mm; }
+  .contacts svg { width: 3.4mm; height: 3.4mm; stroke: var(--gold-l); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  /* body */
+  .body { flex: 1; display: grid; grid-template-columns: 1fr 58mm; min-height: 0; }
+  main { padding: 5.5mm 11mm 0 11mm; }
+  aside { background: var(--side); padding: 5.5mm 6mm 0; border-inline-start: 1px solid var(--line); }
+  section + section { margin-top: 4.2mm; }
+  h2 { font-size: 11pt; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 2mm; margin-bottom: 2.4mm; }
+  h2::before { content: ""; width: 2.6mm; height: 2.6mm; border-radius: .7mm; background: linear-gradient(135deg, var(--gold-xl), var(--gold)); transform: rotate(45deg); flex: none; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  aside h2 { font-size: 10.2pt; }
+  p.summary { color: #343c4d; text-align: justify; }
+
+  .job + .job { margin-top: 2.8mm; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .role { font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .org { color: var(--gold); font-weight: 600; }
+  .period { color: var(--muted); font-size: 8.2pt; white-space: nowrap; }
+  ul.points { list-style: none; margin-top: 1.2mm; }
+  ul.points li { position: relative; padding-inline-start: 4mm; color: #343c4d; }
+  ul.points li + li { margin-top: .5mm; }
+  ul.points li::before { content: ""; position: absolute; inset-inline-start: .6mm; top: 2.1mm; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: var(--gold-l); }
+  .en ul.points li::before { top: 1.9mm; }
+
+  .projects { border-top: 1px solid var(--line); }
+  .proj { display: grid; grid-template-columns: 41mm 1fr auto; column-gap: 3mm; align-items: start; padding: 1.25mm 0; border-bottom: 1px solid var(--line); }
+  .proj-top { display: contents; }
+  .proj b { grid-column: 1; grid-row: 1; font-size: 8.9pt; color: var(--navy); line-height: 1.35; }
+  .proj .kind { grid-column: 1; grid-row: 2; color: var(--gold); font-size: 7.4pt; font-weight: 600; line-height: 1.35; }
+  .proj p { grid-column: 2; grid-row: 1 / span 2; color: var(--muted); font-size: 8pt; line-height: 1.45; align-self: center; }
+  .proj a { grid-column: 3; grid-row: 1 / span 2; align-self: center; color: var(--blue); font-size: 7.4pt; white-space: nowrap; font-family: "Inter", sans-serif; }
+  .tag-dev { display: inline-block; font-size: 6.8pt; font-weight: 600; color: #7a4b16; background: #fbe9d2; border-radius: 1mm; padding: 0 1.3mm; margin-inline-start: 1mm; vertical-align: 1px; }
+  .note { color: var(--muted); font-size: 7.8pt; margin: -1.2mm 0 2.2mm; }
+
+  .skill-group + .skill-group { margin-top: 2.8mm; }
+  .skill-group h3 { font-size: 8.4pt; color: var(--gold); font-weight: 700; margin-bottom: 1.2mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+  .chips span { background: #fff; border: 1px solid var(--line); border-radius: 1.2mm; padding: .2mm 1.8mm; font-size: 7.9pt; color: var(--ink); }
+  .kv div + div { margin-top: 2mm; }
+  .kv b { display: block; font-size: 8.9pt; color: var(--navy); }
+  .kv span { color: var(--muted); font-size: 8pt; }
+  .bar { height: 1.3mm; background: var(--line); border-radius: 1mm; margin-top: .9mm; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-xl), var(--gold)); border-radius: 1mm; }
+  .ar .bar i { background: linear-gradient(270deg, var(--gold-xl), var(--gold)); margin-inline-start: 0; }
+  .soft { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+  .soft span { font-size: 7.9pt; background: var(--navy); color: #e9edf6; border-radius: 1.2mm; padding: .2mm 1.8mm; }
+
+  .page.en { font-size: 8.6pt; }
+  .en .proj { grid-template-columns: 46mm 1fr auto; padding: 1.05mm 0; }
+  .en .proj p { font-size: 7.8pt; }
+  .en ul.points li + li { margin-top: .2mm; }
+  footer { padding: 2.6mm 13mm 4mm; font-size: 7.4pt; color: #9aa2b3; display: flex; justify-content: space-between; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<!-- ============================ ARABIC ============================ -->
+<div class="page ar" dir="rtl" lang="ar">
+  <header>
+    <span class="glow"></span>
+    <div class="head">
+      <div class="mono"><svg viewBox="0 0 64 48" fill="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="64" y2="48" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f3c98d"/><stop offset=".55" stop-color="#e7a55a"/><stop offset="1" stop-color="#b9773a"/></linearGradient></defs><path d="M4 44V6l16 22L36 6v38" stroke="url(#g1)" stroke-width="5" stroke-linecap="square"/><path d="M28 44V14l14 19 14-19v30" stroke="#e9edf6" stroke-opacity=".9" stroke-width="3" stroke-linecap="square"/></svg></div>
+      <div>
+        <h1>محمد مسعود عكاشة عثمان</h1>
+        <div class="title">مطوّر برمجيات · مهندس حلول ذكاء اصطناعي</div>
+      </div>
+    </div>
+    <div class="contacts">
+      <a href="tel:+966564334619"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="ltr">+966 56 433 4619</span></a>
+      <a href="mailto:mohammed.masud460@gmail.com"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span class="ltr">mohammed.masud460@gmail.com</span></a>
+      <a href="https://okasha-fulldev.github.io/mohammed-portfolio/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg><span class="ltr">okasha-fulldev.github.io/mohammed-portfolio</span></a>
+      <a href="https://github.com/okasha-fulldev"><svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span class="ltr">github.com/okasha-fulldev</span></a>
+      <a href="https://www.linkedin.com/in/mohammed-okasha-a31531404"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span class="ltr">LinkedIn</span></a>
+    </div>
+  </header>
+
+  <div class="body">
+    <main>
+      <section>
+        <h2>الملخص المهني</h2>
+        <p class="summary">مطوّر برمجيات ومهندس حلول ذكاء اصطناعي. أبحث عن المشكلة الحقيقية خلف كل فكرة، ثم أبني لها حلًا ذكيًا يوظّف الذكاء الاصطناعي وأتمتة العمليات داخل أنظمة ويب متكاملة باستخدام Laravel وReact وSupabase وn8n، مع التكامل مع OpenAI وGemini. عملت على أنظمة حكومية ومنصات تعليمية وتجارة إلكترونية وإدارة أساطيل وخرائط جغرافية، ولديّ خبرة ميدانية في إدارة العمليات وتنظيم البيانات والعمل مع الفرق.</p>
+      </section>
+
+      <section>
+        <h2>الخبرة العملية</h2>
+        <div class="job">
+          <div class="job-head"><div><span class="role">مطوّر برمجيات</span> — <span class="org">شركة MTE</span></div><span class="period">نوفمبر 2025 – الآن</span></div>
+          <ul class="points">
+            <li>تطوير نظام إدارة وضبط الجلسات التدريبية المباشرة.</li>
+            <li>بناء «عونك»: بوت ذكاء اصطناعي يرد على الناس تلقائيًا في واتساب وتيليجرام.</li>
+            <li>تطوير نظام تدريب على النطق بالذكاء الاصطناعي يحلل تسجيل المتدرب بالإنجليزية والأردية والتركية ويعطي نسبة دقة النطق.</li>
+            <li>المساهمة في الحصول على ترخيص التعليم الإلكتروني من المركز الوطني للتعليم الإلكتروني (NELC).</li>
+            <li>إدارة متجر الشركة على منصة «نون»: المنتجات والطلبات والمخزون.</li>
+            <li>ربط نظام الفواتير مع منصة «دفترة» عبر API.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="job-head"><div><span class="role">مشرف عمليات</span> — <span class="org">جمعية خيرية، مواسم الحج</span></div><span class="period">4 مواسم متتالية</span></div>
+          <ul class="points">
+            <li>إدارة العمليات الميدانية للجمعية خلال مواسم الحج، والإشراف على تنظيم الخدمات وتوزيعها على الحجاج.</li>
+            <li>جمع البيانات من الميدان وتنظيمها وتسليمها للفريق التقني، لتكون الصورة واضحة ودقيقة لاتخاذ القرار.</li>
+            <li>العمل ضمن فرق ميدانية تحت ضغط عمل عالٍ.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>مشاريع وأعمال</h2>
+        <p class="note">بعضها طوّرته بنفسي، وبعضها شاركت في بنائه ضمن فرق عمل.</p>
+        <div class="projects">
+          <div class="proj"><div class="proj-top"><b>قمم الحرمين — بلسان مبين</b><a href="https://qimamalharamain.com/">qimamalharamain.com</a></div><span class="kind">منصة تدريب حكومية</span><p>تدريب لغوي للعاملين في الهيئة العامة للعناية بشؤون المسجد الحرام والمسجد النبوي.</p></div>
+          <div class="proj"><div class="proj-top"><b>عونك <span class="tag-dev">قيد التطوير</span></b></div><span class="kind">بوت ذكاء اصطناعي — واتساب وتيليجرام</span><p>يرد على الناس تلقائيًا، درّبناه ليفهم أسئلتهم ويجيب عنها.</p></div>
+          <div class="proj"><div class="proj-top"><b>متجر غيث <span class="tag-dev">قيد التطوير</span></b><a href="https://thestore-8qa.pages.dev/">thestore-8qa.pages.dev</a></div><span class="kind">متجر إلكتروني</span><p>متجر متكامل للفلاتر: عرض المنتجات واستقبال الطلبات وإدارتها.</p></div>
+          <div class="proj"><div class="proj-top"><b>سوبر قدرات</b><a href="https://superqodrat.com/">superqodrat.com</a></div><span class="kind">منصة تعليمية</span><p>تهيئة الطلاب لاختبار القدرات بالتدريب والاختبارات التفاعلية.</p></div>
+          <div class="proj"><div class="proj-top"><b>شهادتي</b><a href="https://github.com/okasha-fulldev/shahadati">GitHub</a></div><span class="kind">مشروع التخرج</span><p>إنشاء شهادات الجهات التعليمية وإرسالها تلقائيًا بالبريد.</p></div>
+          <div class="proj"><div class="proj-top"><b>مطاراتي <span class="tag-dev">قيد التطوير</span></b></div><span class="kind">تطبيق إدارة أسطول</span><p>متابعة المركبات والرحلات والعمليات التشغيلية.</p></div>
+          <div class="proj"><div class="proj-top"><b>ترسيم مسارات الحج</b></div><span class="kind">نظام معلومات جغرافية GIS</span><p>تقسيم بيانات GPS: النقاط مع النقاط، والمسارات مع المسارات، والمساحات مع المساحات.</p></div>
+          <div class="proj"><div class="proj-top"><b>قمم العلوم</b><a href="https://qimam.academy/">qimam.academy</a></div><span class="kind">منصة تعليمية LMS</span><p>منصة تعليمية متكاملة لمعهد تعليم اللغة الإنجليزية.</p></div>
+          <div class="proj"><div class="proj-top"><b>زملاء</b><a href="https://zomala.net/">zomala.net</a></div><span class="kind">منصة تعليمية مجتمعية</span><p>تربط الزملاء لمشاركة المعرفة وطلب الدعم في مجتمع آمن ومنظم.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>المهارات التقنية</h2>
+        <div class="skill-group"><h3>تطوير الويب</h3><div class="chips"><span>Laravel</span><span>PHP</span><span>Blade</span><span>React</span><span>JavaScript</span><span>Supabase</span><span>REST APIs</span><span>Python</span></div></div>
+        <div class="skill-group"><h3>الذكاء الاصطناعي والأتمتة</h3><div class="chips"><span>وكلاء الذكاء الاصطناعي</span><span>OpenAI</span><span>Gemini</span><span>n8n</span><span>بروتوكول MCP</span><span>هندسة البرومبتات</span><span>توليد الفيديو بالذكاء الاصطناعي</span></div></div>
+        <div class="skill-group"><h3>التكاملات والتجارة الإلكترونية</h3><div class="chips"><span>نون</span><span>دفترة</span><span>بوابات OTP (Authentica)</span><span>الخرائط وGIS / GPS</span></div></div>
+        <div class="skill-group"><h3>أدوات وإنتاجية</h3><div class="chips"><span>Excel بإتقان</span><span>Microsoft Office</span></div></div>
+      </section>
+
+      <section>
+        <h2>المهارات الشخصية</h2>
+        <div class="soft"><span>قيادة الفريق</span><span>إدارة المشاريع</span><span>العمل ضمن فريق</span><span>حل المشكلات</span><span>العمل تحت الضغط</span></div>
+      </section>
+
+      <section class="kv">
+        <h2>التعليم</h2>
+        <div><b>دبلوم تقني — معهد هرمس</b><span>مكتمل، بانتظار إصدار الشهادة</span></div>
+        <div><b>الثانوية العامة</b></div>
+      </section>
+
+      <section class="kv">
+        <h2>اللغات</h2>
+        <div><b>العربية</b><span>اللغة الأم</span><div class="bar"><i style="width:100%"></i></div></div>
+        <div><b>الإنجليزية</b><span>مستوى B1</span><div class="bar"><i style="width:55%"></i></div></div>
+      </section>
+    </aside>
+  </div>
+  <footer><span>صفحة 1 / 2 — النسخة الإنجليزية في الصفحة التالية</span><span class="ltr">okasha-fulldev.github.io/mohammed-portfolio</span></footer>
+</div>
+
+<!-- ============================ ENGLISH ============================ -->
+<div class="page en" dir="ltr" lang="en">
+  <header>
+    <span class="glow"></span>
+    <div class="head">
+      <div class="mono"><svg viewBox="0 0 64 48" fill="none"><defs><linearGradient id="g2" x1="0" y1="0" x2="64" y2="48" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f3c98d"/><stop offset=".55" stop-color="#e7a55a"/><stop offset="1" stop-color="#b9773a"/></linearGradient></defs><path d="M4 44V6l16 22L36 6v38" stroke="url(#g2)" stroke-width="5" stroke-linecap="square"/><path d="M28 44V14l14 19 14-19v30" stroke="#e9edf6" stroke-opacity=".9" stroke-width="3" stroke-linecap="square"/></svg></div>
+      <div>
+        <h1>Mohammed Masoud Okasha Othman</h1>
+        <div class="title">Software Developer · AI Solutions Engineer</div>
+      </div>
+    </div>
+    <div class="contacts">
+      <a href="tel:+966564334619"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+966 56 433 4619</a>
+      <a href="mailto:mohammed.masud460@gmail.com"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>mohammed.masud460@gmail.com</a>
+      <a href="https://okasha-fulldev.github.io/mohammed-portfolio/en/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>okasha-fulldev.github.io/mohammed-portfolio</a>
+      <a href="https://github.com/okasha-fulldev"><svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>github.com/okasha-fulldev</a>
+      <a href="https://www.linkedin.com/in/mohammed-okasha-a31531404"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="body">
+    <main>
+      <section>
+        <h2>Professional Summary</h2>
+        <p class="summary">Software developer and AI solutions engineer. I look for the real problem behind every idea, then build a smart solution for it, putting AI and workflow automation to work inside complete web systems built with Laravel, React, Supabase and n8n, integrated with OpenAI and Gemini. I have worked on government systems, learning platforms, e-commerce, fleet management and geographic mapping, and bring field experience in running operations, organizing data and working with teams.</p>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <div class="job">
+          <div class="job-head"><div><span class="role">Software Developer</span> — <span class="org">MTE</span></div><span class="period">Nov 2025 – Present</span></div>
+          <ul class="points">
+            <li>Built a management system for live training sessions.</li>
+            <li>Built Awnak: an AI bot that answers people automatically on WhatsApp and Telegram.</li>
+            <li>Built an AI pronunciation trainer that analyzes trainees' English, Urdu and Turkish recordings and scores their accuracy.</li>
+            <li>Helped obtain the e-learning license from the National eLearning Center (NELC).</li>
+            <li>Managed the company's store on the Noon marketplace: products, orders and stock.</li>
+            <li>Integrated invoicing with Daftra via API.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="job-head"><div><span class="role">Operations Supervisor</span> — <span class="org">Charity, Hajj seasons</span></div><span class="period">4 consecutive seasons</span></div>
+          <ul class="points">
+            <li>Ran the charity's field operations in Hajj seasons, supervising how services were organized and distributed to pilgrims.</li>
+            <li>Collected and organized field data for the technical team, giving them a clear, accurate picture for decisions.</li>
+            <li>Worked in field teams under high pressure.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects &amp; Work</h2>
+        <p class="note">Some I built myself, others I helped build as part of a team.</p>
+        <div class="projects">
+          <div class="proj"><div class="proj-top"><b>Qimam Al-Haramain</b><a href="https://qimamalharamain.com/">qimamalharamain.com</a></div><span class="kind">Government training platform</span><p>Language training for staff of the Two Holy Mosques Authority.</p></div>
+          <div class="proj"><div class="proj-top"><b>Awnak <span class="tag-dev">In development</span></b></div><span class="kind">AI bot — WhatsApp &amp; Telegram</span><p>Answers people automatically, trained to understand their questions.</p></div>
+          <div class="proj"><div class="proj-top"><b>Ghaith Store <span class="tag-dev">In development</span></b><a href="https://thestore-8qa.pages.dev/">thestore-8qa.pages.dev</a></div><span class="kind">Online store</span><p>A complete filters store: catalog, orders and order management.</p></div>
+          <div class="proj"><div class="proj-top"><b>Super Qudrat</b><a href="https://superqodrat.com/">superqodrat.com</a></div><span class="kind">Learning platform</span><p>Prepares students for the Qudrat aptitude test with interactive practice.</p></div>
+          <div class="proj"><div class="proj-top"><b>Shahadati</b><a href="https://github.com/okasha-fulldev/shahadati">GitHub</a></div><span class="kind">Graduation project</span><p>Generates institutions' certificates and emails them automatically.</p></div>
+          <div class="proj"><div class="proj-top"><b>Matarati <span class="tag-dev">In development</span></b></div><span class="kind">Fleet management app</span><p>Tracks vehicles, trips and day-to-day operations.</p></div>
+          <div class="proj"><div class="proj-top"><b>Hajj Route Mapping</b></div><span class="kind">GIS system</span><p>Organizing Hajj GPS data: points, routes and areas, each with its kind.</p></div>
+          <div class="proj"><div class="proj-top"><b>Qimam Al-Uloom</b><a href="https://qimam.academy/">qimam.academy</a></div><span class="kind">LMS platform</span><p>A complete learning platform for an English-language institute.</p></div>
+          <div class="proj"><div class="proj-top"><b>Zumala</b><a href="https://zomala.net/">zomala.net</a></div><span class="kind">Community learning platform</span><p>Connects peers to share knowledge and ask for help in a safe community.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skill-group"><h3>Web development</h3><div class="chips"><span>Laravel</span><span>PHP</span><span>Blade</span><span>React</span><span>JavaScript</span><span>Supabase</span><span>REST APIs</span><span>Python</span></div></div>
+        <div class="skill-group"><h3>AI &amp; automation</h3><div class="chips"><span>AI Agents</span><span>OpenAI</span><span>Gemini</span><span>n8n</span><span>MCP Protocol</span><span>Prompt Engineering</span><span>AI Video Generation</span></div></div>
+        <div class="skill-group"><h3>Integrations &amp; e-commerce</h3><div class="chips"><span>Noon</span><span>Daftra</span><span>OTP Gateways (Authentica)</span><span>Maps &amp; GIS / GPS</span></div></div>
+        <div class="skill-group"><h3>Tools &amp; productivity</h3><div class="chips"><span>Advanced Excel</span><span>Microsoft Office</span></div></div>
+      </section>
+
+      <section>
+        <h2>Soft Skills</h2>
+        <div class="soft"><span>Team leadership</span><span>Project management</span><span>Teamwork</span><span>Problem solving</span><span>Working under pressure</span></div>
+      </section>
+
+      <section class="kv">
+        <h2>Education</h2>
+        <div><b>Technical Diploma — Hermes Institute</b><span>Completed, certificate pending</span></div>
+        <div><b>High School Diploma</b></div>
+      </section>
+
+      <section class="kv">
+        <h2>Languages</h2>
+        <div><b>Arabic</b><span>Native</span><div class="bar"><i style="width:100%"></i></div></div>
+        <div><b>English</b><span>B1 level</span><div class="bar"><i style="width:55%"></i></div></div>
+      </section>
+    </aside>
+  </div>
+  <footer><span>Page 2 / 2 — Arabic version on page 1</span><span>okasha-fulldev.github.io/mohammed-portfolio</span></footer>
+</div>
+
+</body>
+</html>
